@@ -2,7 +2,7 @@
 
 ## Link
 
-Coming soon...
+https://arcade-heroes.herokuapp.com/
 
 ## Overview
 

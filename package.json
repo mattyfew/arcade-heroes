@@ -1,16 +1,15 @@
 {
-  "name": "imageboard",
+  "name": "Arcade Heroes",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Image forum to pay homage to the greatest video game characters",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node server.js"
   },
   "engines": {
     "node": "6.11.0"
   },
-  "author": "",
+  "author": "Matt Fewer",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
