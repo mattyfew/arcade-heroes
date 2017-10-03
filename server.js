@@ -121,4 +121,7 @@ app.get('/image/:id', function(req, res) {
 })
 
 
-app.listen(8080, () => console.log(`I'm listening on port 8080.`));
+app.set('port', process.env.PORT || 8080)
+app.listen(app.get('port'), () => {
+    console.log(`I'm listening on port ${app.get('port')}`)
+});
