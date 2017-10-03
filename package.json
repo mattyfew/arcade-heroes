@@ -1,5 +1,5 @@
 {
-  "name": "Arcade Heroes",
+  "name": "arcade-heroes",
   "version": "1.0.0",
   "description": "Image forum to pay homage to the greatest video game characters",
   "main": "server.js",
