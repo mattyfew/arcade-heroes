@@ -1,0 +1,141 @@
+<!doctype html>
+<head>
+    <title>Image Board</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="./stylesheet.css">
+</head>
+
+<body>
+        <div id="big-container">
+            <nav class="bar container">
+                <!-- <div class="bar container"> -->
+                    <a href="/#/"><img id="fireball" src="./fireball.svg" alt="logo"></a>
+                    <ul>
+                        <li><a href="/#/">Home</a></li>
+                        <li><a href="/#/upload">Upload</a></li>
+                    </ul>
+                <!-- </div> -->
+            </nav>
+            <div class="container" id="main-container"></div>
+        </div>
+
+        <footer>
+            <p>created by mattyfew</p>
+        </footer>
+
+
+
+
+
+
+
+
+
+
+
+    <template id="images">
+        <div id="images-container">
+            {{#each images}}
+                <div class="image">
+                    <a href="/#/image/{{id}}"><h2>{{title}}</h2></a>
+                    <h3>{{username}}</h3>
+                    <a href="/#/image/{{id}}">
+
+                        <div class="home-img-wrapper"><img src="https://s3.amazonaws.com/spicedling/{{image}}" alt="{{title}}"></div>
+                    </a>
+                </div>
+            {{/each}}
+        </div>
+    </template>
+
+
+    <template id="upload">
+        <div id="upload-container">
+            <h2 class="page-header">Upload a New Character</h2>
+
+            <form id="upload-form" enctype="multipart/form-data">
+                <input type="text" name="username" placeholder="username">
+                <input type="text" name="title" placeholder="image title">
+                <input type="text" name="description" placeholder="description">
+                <input type="file" name="image">
+                <br>
+                <input id="upload-submit" type="submit" value="Upload image">
+            </form>
+        </div>
+    </template>
+
+    <template id="image">
+        <div id="single-image-container">
+            <section class="top-container">
+                <main id="single-image-card">
+                    <div class="single-image-wrapper"><img id="single-image" src="https://s3.amazonaws.com/spicedling/{{image.image}}" alt="{{image.title}}"></div>
+                    <div class="image-description-container">
+                        <h2 class="image-description-title">{{image.title}}</h2>
+                        <p class="image-description-author">by {{image.username}}</p>
+                        <p>"{{image.description}}"</p>
+                    </div>
+                </main>
+            </section>
+
+            <section id="comments-section"></section>
+        </div>
+
+    </template>
+
+
+
+
+
+
+
+
+
+
+
+    <template id="comments">
+        <div id="comments-top-section">
+            <div id="add-comment-container">
+                <h3>Add a comment</h3>
+                <form id="comment-form" class="comment-form" method="post">
+                    <input type="hidden" name="imageId" value="">
+                    <input type="text" name="username" placeholder="username" required>
+                    <input type="text" name="content" placeholder="content" required>
+                    <input type="submit" name="" value="Submit">
+                </form>
+            </div>
+            <div id="comment-rules">
+                <h3>Rules</h3>
+                <ol>
+                    <li>Be nice to each other.</li>
+                    <li>Only comments relevant to this post please.</li>
+                    <li>Go Yankees</li>
+                </ol>
+            </div>
+        </div>
+        <hr id="comment-section-hr">
+
+        {{#comments}}
+            <div class="comment">
+                <h3><span class="username">{{username}}</span> on {{createdAtDate}}</span></h3>
+                <p>{{content}}</p>
+            </div>
+        {{/comments}}
+    </template>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="/js/handlebars.min.js"></script>
+    <script src="/js/jquery-3.1.1.min.js"></script>
+    <script src="/js/underscore-min.js"></script>
+    <script src="/js/backbone-min.js"></script>
+    <script src="/js/script.js"></script>
+</body>
