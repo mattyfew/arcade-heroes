@@ -116,7 +116,7 @@ app.get('/image/:id', function(req, res) {
 
     db.query(q, params)
     .then((results) => {
-        res.json({ image: results.rows[0]})
+        res.json({ image: results.rows[0] })
     })
 })
 
