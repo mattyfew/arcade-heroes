@@ -8,12 +8,15 @@
 <body>
         <div id="big-container">
             <nav class="bar">
-                <a href="/#/"><img id="fireball" src="./fireball.svg" alt="logo"></a>
-                <ul>
-                    <li><a href="/#/">Home</a></li>
-                    <li><a href="/#/upload">Upload</a></li>
-                </ul>
+                <!-- <div id="nav-container"> -->
+                    <a href="/#/"><img id="fireball" src="./fireball.svg" alt="logo"></a>
+                    <ul>
+                        <li><a href="/#/">Home</a></li>
+                        <li><a href="/#/upload">Upload</a></li>
+                    </ul>
+                <!-- </div> -->
             </nav>
+
             <div class="container" id="main-container"></div>
         </div>
 
@@ -35,17 +38,15 @@
         <div id="images-container">
             {{#each images}}
                 <div class="image">
-                    <a href="/#/image/{{id}}"><h2>{{title}}</h2></a>
+                    <a class="img-link" href="/#/image/{{id}}"><h2>{{title}}</h2></a>
                     <h3>{{username}}</h3>
-                    <a href="/#/image/{{id}}">
-
-                        <div class="home-img-wrapper"><img src="https://s3.amazonaws.com/spicedling/{{image}}" alt="{{title}}"></div>
+                    <a class="img-link" href="/#/image/{{id}}">
+                        <div class="home-img-wrapper"><img class="home-img" src="https://s3.amazonaws.com/spicedling/{{image}}" alt="{{title}}"></div>
                     </a>
                 </div>
             {{/each}}
         </div>
     </template>
-
 
     <template id="upload">
         <div id="upload-container">
@@ -55,7 +56,7 @@
                 <input type="text" name="username" placeholder="username">
                 <input type="text" name="title" placeholder="image title">
                 <input type="text" name="description" placeholder="description">
-                <input type="file" name="image">
+                <input id="file-upload" type="file" name="image">
                 <br>
                 <input id="upload-submit" type="submit" value="Upload image">
             </form>
