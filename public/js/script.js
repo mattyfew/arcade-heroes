@@ -1,12 +1,9 @@
 (function() {
     Handlebars.templates = Handlebars.templates || {};
-
     var templates = document.querySelectorAll('template');
-
     Array.prototype.slice.call(templates).forEach(function(tmpl) {
         Handlebars.templates[tmpl.id] = Handlebars.compile(tmpl.innerHTML.replace(/{{&gt;/g, '{{>'));
     });
-
     Handlebars.partials = Handlebars.templates;
 
 
@@ -65,7 +62,6 @@
         render: function() {
             var data = this.model.toJSON()
             var html = Handlebars.templates.images(data);
-
             this.$el.html(html);
         },
         el: '#main-container'
@@ -78,6 +74,8 @@
         },
         uploadFile: function(event) {
             if (event) { event.preventDefault() }
+
+            console.log("uploading file");
 
             var values = {};
 
@@ -124,12 +122,14 @@
 
     var CommentsView = Backbone.View.extend({
         el: '#comments-section',
+
         initialize: function(){
             var view = this;
             this.model.on('change', function() {
                 view.render();
             })
         },
+
         render: function(){
             var view = this
             var data = this.model.toJSON()
@@ -143,9 +143,12 @@
             this.$el.html(html);
         },
 
-        events: { 'submit form': 'uploadComment' },
+        events: {
+            'submit #comment-form': 'uploadComment'
+        },
 
         uploadComment: function(event) {
+            console.log("uploading comment");
             if (event) { event.preventDefault() }
             var values = {};
 
@@ -205,7 +208,6 @@
         upload: function() {
             var uploadView = new UploadView({
                 el: '#main-container',
-                // model: new UploadModel
             })
         }
     });
