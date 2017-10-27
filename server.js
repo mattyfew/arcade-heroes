@@ -10,7 +10,7 @@ const knox = require('knox');
 const fs = require('fs');
 var favicon = require('serve-favicon')
 
-app.use(favicon(path.join(__dirname, 'public', 'fireball.svg')))
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 
 let secrets;
 
